@@ -189,9 +189,6 @@ Based on the evaluation results and [Tinker's documentation](https://tinker-docs
 
 ## 📊 Model Performance Visualizations
 
-### Advanced Metrics Comparison
-![Advanced Evaluation Metrics](images/advanced_evaluation_metrics.png)
-
 ### Comprehensive Model Evaluation
 ![Comprehensive Evaluation](images/comprehensive_evaluation.png)
 
@@ -213,6 +210,9 @@ Based on the evaluation results and [Tinker's documentation](https://tinker-docs
 - ✅ **Structured Output**: Consistent length indicates proper JSON formatting
 - ⚠️ **Base Model Variability**: 45.8% CV shows inconsistent response structure
 - ❌ **Unsloth Chaos**: 156.3% CV indicates catastrophic failure with extreme variability (0-1864 characters)
+
+### Advanced Metrics Comparison
+![Advanced Evaluation Metrics](images/advanced_evaluation_metrics.png)
 
 **Key Findings**:
 - ✅ **Tinker API**: 0.8674 quality score, 100% JSON validation
