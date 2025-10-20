@@ -116,7 +116,7 @@ This project compared three approaches for processing AI industry news:
 - Consistency (CV): 156.3% (highly inconsistent)
 - Training Time: 0.94 minutes (fastest)
 
-**Verdict**: ❌ **Catastrophic Failure** - Produced placeholder text and inconsistent outputs despite fast training
+**Verdict**: ❌ **Highly Material Failure** - Produced placeholder text and inconsistent outputs despite fast training
 
 ---
 
