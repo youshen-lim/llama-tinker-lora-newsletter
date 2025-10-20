@@ -1,0 +1,64 @@
+================================================================================
+NEWSLETTER FINE-TUNING: COMPREHENSIVE EVALUATION REPORT
+================================================================================
+
+Generated: 2025-10-19 02:29:49
+
+Total Examples Evaluated: 5
+Models Compared: base, tinker, unsloth
+
+================================================================================
+SUMMARY STATISTICS BY MODEL
+================================================================================
+
+base:
+  - Success Rate: 100.00%
+  - Avg Response Length: 972.20 chars
+  - Median Response Length: 903.00 chars
+  - Std Dev: 376.83
+  - Min Length: 542 chars
+  - Max Length: 1558 chars
+  - Avg Word Count: 143.80 words
+  - Consistency (CV): 38.76%
+
+tinker:
+  - Success Rate: 100.00%
+  - Avg Response Length: 191.00 chars
+  - Median Response Length: 191.00 chars
+  - Std Dev: 0.00
+  - Min Length: 191 chars
+  - Max Length: 191 chars
+  - Avg Word Count: 20.60 words
+  - Consistency (CV): 0.00%
+
+unsloth:
+  - Success Rate: 100.00%
+  - Avg Response Length: 492.60 chars
+  - Median Response Length: 157.00 chars
+  - Std Dev: 769.92
+  - Min Length: 65 chars
+  - Max Length: 1864 chars
+  - Avg Word Count: 56.60 words
+  - Consistency (CV): 156.30%
+
+================================================================================
+RECOMMENDATIONS
+================================================================================
+
+1. QUANTITATIVE ANALYSIS:
+   - Review success rates and response consistency
+   - Compare response length distributions
+   - Identify models with stable performance (low CV)
+
+2. QUALITATIVE REVIEW (MANUAL):
+   - Read side-by-side comparisons for content quality
+   - Assess newsletter tone and formatting adherence
+   - Check factual accuracy and information preservation
+   - Evaluate professional polish and readability
+
+3. NEXT STEPS:
+   - Select best-performing model based on combined metrics
+   - Consider A/B testing with real newsletter content
+   - Iterate on training data if needed
+
+================================================================================

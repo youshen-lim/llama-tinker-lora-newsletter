@@ -1,0 +1,4 @@
+Model,Total_Examples,Successful_Responses,Success_Rate_%,Avg_Response_Length,Median_Response_Length,Std_Response_Length,Min_Response_Length,Max_Response_Length,Avg_Word_Count,Median_Word_Count,Response_Consistency_CV
+base,5,5,100.0,972.2,903.0,376.8304658596489,542,1558,143.8,137.0,38.760591016215685
+tinker,5,5,100.0,191.0,191.0,0.0,191,191,20.6,21.0,0.0
+unsloth,5,5,100.0,492.6,157.0,769.9190217159205,65,1864,56.6,21.0,156.2969999423306

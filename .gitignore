@@ -1,0 +1,151 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# Model files (too large for Git)
+models/tinker/*.bin
+models/tinker/*.safetensors
+models/tinker/*.tar
+models/unsloth/*.bin
+models/unsloth/*.safetensors
+models/baseline/*.bin
+models/baseline/*.safetensors
+*.gguf
+*.pth
+*.pt
+model-*.safetensors
+
+# Large data files
+data/raw/*.csv
+data/raw/*.json
+data/processed/*.csv
+*.parquet
+
+# API keys and credentials
+.env
+.env.local
+secrets.json
+credentials.json
+*.key
+*.pem
+
+# Google Drive
+.gdrive/
+drive/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+desktop.ini
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Cache
+.cache/
+*.cache
+
+# Downloaded archives
+Newsletter_FineTuning-*.zip
+Newsletter_FineTuning-*-001/
+Newsletter_FineTuning-*-002/
+
+# Old/backup files
+OLD_*.md
+*_old.md
+*_backup.*
+
+# Temporary documentation (cleanup guides)
+FILE_CLEANUP_PLAN.md
+organize_files.ps1
+ORGANIZE_YOUR_FILES.md
+GITHUB_REPOSITORY_STRUCTURE.md
+PROJECT_SHARING_COMPLETE_GUIDE.md
+QUICK_START_CHECKLIST.md
+SHARING_PLATFORMS_GUIDE.md
+QUICK_INTEGRATION_CHECKLIST.md
+SAVE_*.md
+CONSOLIDATE_*.md
+GOOGLE_DRIVE_UPLOAD_INSTRUCTIONS.md
+REQUEST_COMPLETION_SUMMARY.md
+
+# Redundant evaluation/metrics docs (consolidated)
+ADVANCED_EVALUATION_METRICS_REPORT.md
+COMPREHENSIVE_EVALUATION_REPORT.md
+ADVANCED_METRICS_*.md
+EVALUATION_CODE_FIXES_SUMMARY.md
+EVALUATION_SETUP_SUMMARY.md
+
+# Redundant training/annotation docs (consolidated)
+DATA_SPLIT_ANALYSIS_AND_RECOMMENDATIONS.md
+ANNOTATION_WIDGET_FIX_SUMMARY.md
+TRAINING_DATA_CONTENT_ANALYSIS.md
+TASK_*_*.md
+TLDR_ANNOTATION_STRATEGY_GUIDE.md
+
+# Redundant Tinker docs (consolidated)
+TINKER_API_*.md
+TINKER_COMPLETE_DOCUMENTATION_SUMMARY.md
+TINKER_FINAL_EVALUATION_ASSESSMENT.md
+TINKER_TRAINING_FIX.md
+DOWNLOAD_TINKER_*.md
+TINKER_LOCAL_PRODUCTION_GUIDE.md
+TINKER_MODEL_*.md
+
+# Redundant optimization/fix docs (consolidated)
+OPTIMIZATION_SUMMARY.md
+OPTIMIZED_FINE_TUNING_GUIDE.md
+QUICK_FIX_GUIDE.md
+HISTOGRAM_FIX.md
+UNSLOTH_INSTALLATION_FIX.md
+PRODUCTION_PIPELINE_COMPATIBILITY_ANALYSIS.md
+FULL_CONTENT_TRAINING_IMPACT_ANALYSIS.md
+DEPLOYMENT_AND_TESTING_WORKFLOW.md
+Model_Backup_and_Management_Guide.md
+EXACT_BASELINE_FINE_TUNING_WORKFLOW.md
+

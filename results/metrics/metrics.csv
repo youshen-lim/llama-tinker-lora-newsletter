@@ -1,0 +1,4 @@
+Model,Num Responses,Successful,Success Rate (%),Avg Response Length,Median Response Length
+base,5,5,100.0,972.2,903.0
+tinker,5,5,100.0,191.0,191.0
+unsloth,5,5,100.0,492.6,157.0

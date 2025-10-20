@@ -1,0 +1,106 @@
+Example_ID,Prompt,base_Response,base_Length,tinker_Response,tinker_Length,unsloth_Response,unsloth_Length
+0,"Analyze: TLDR AI
+
+### OpenAI and Broadcom announce strategic collaboration to deploy 10 gigawatts
+**...","**Analysis**
+
+* **Relevance Score:** 8/10 (High relevance to AI and tech industry)
+* **Summary:** OpenAI and Broadcom announce a strategic collaboration to design custom AI chips, with the goal of deploying 10 gigawatts of AI computing power. 
+* **Key Points:**
+	+ OpenAI, a leading AI research organ...",1054,"{
+  ""relevance_score"": 8,
+  ""summary"": ""Significant AI/tech development with major implications"",
+  ""insights"": [
+    ""Important technological progress"",
+    ""Strategic industry impact""
+  ]
+}",191,"{
+  ""relevance_score"": <1-10>, ""<1 sentence>"", ""<1 sentence>"",
+  ""insights"": [""key point 1""], [""key point 2""]}
+user story only:
+<1 sentence>: Major technological progress in tech/industry?
+JSON only:
+{""relevance_score"": <1-10>, ""<1 sentence>"", ""<1 sentence""]}",259
+1,"Analyze: TLDR AI
+
+### NotebookLM Video Overviews add Nano Banana visual styles, Brief or Explainer f...","**Summary:**
+
+* NotebookLM has updated Video Overviews with two new formats: Brief and Explainer
+* Brief format provides a concise overview of core ideas from sources
+* Explainer format creates a structured overview that connects the dots within sources
+* Six new visual styles have been added, inclu...",804,"{
+  ""relevance_score"": 7,
+  ""summary"": ""Notable AI/tech progress with commercial implications"",
+  ""insights"": [
+    ""Meaningful development in technology"",
+    ""Potential market impact""
+  ]
+}",191,"{
+  ""relevance_score"": <1-10>, ""<1 sentence>"", ""<1 sentence>"", {
+    ""key point 1"": ""<1 sentence>"", ""<key point 2>?}
+}",118
+2,"Analyze: TLDR AI
+
+### Salesforce's Agentforce 360
+**Reading Time:** 4 minute read
+🔗 **Source:** http...","Here is the analysis of the provided TLDR article in JSON format:
+
+```
+{
+  ""relevance_score"": 8,
+  ""summary"": ""Salesforce's Agentforce 360 gets new AI features, including scripting AI behavior, agent building, and tighter Slack integration, with support for OpenAI, Anthropic, and Google's reasoning ...",1558,"{
+  ""relevance_score"": 7,
+  ""summary"": ""Notable AI/tech progress with commercial implications"",
+  ""insights"": [
+    ""Meaningful development in technology"",
+    ""Potential market impact""
+  ]
+}",191,"{
+  ""relevance_score"": <1-10>, ""<1 sentence>"", ""<1 sentence?>"">
+}",65
+3,"Analyze: TLDR AI
+
+### Technological Optimism and Appropriate Fear
+**Reading Time:** 25 minute read
+🔗...","Here is the analysis in JSON format:
+
+```
+{
+  ""relevance_score"": 8,
+  ""summary"": ""The development of increasingly powerful AI systems with complex goals requires careful consideration of alignment with human preferences and context to avoid unintended consequences."",
+  ""insights"": [
+    ""Working wit...",903,"{
+  ""relevance_score"": 7,
+  ""summary"": ""Notable AI/tech progress with commercial implications"",
+  ""insights"": [
+    ""Meaningful development in technology"",
+    ""Potential market impact""
+  ]
+}",191,"{
+  ""relevance_score"": <1-10>, ""<1 sentence>"", ""<1 sentence?>"">
+({
+  ""res"": <1-string>"", ""<1-key point 1>"", ""<1-key point 2>"", ""<1-term 1>"", ""<1-term 2>""})
+}",157
+4,"Analyze: TLDR AI
+
+### The Robot in Your Kitchen
+**Reading Time:** 20 minute read
+🔗 **Source:** https...","Here is the analysis in JSON format:
+
+```
+{
+  ""relevance_score"": 6,
+  ""summary"": ""Figure AI's CEO predicts that every home will have a humanoid robot doing chores within 10 years, and the company's new Figure 03 robot will be mass-producible, but it still has room for improvement."",
+  ""insights"": [
+...",542,"{
+  ""relevance_score"": 8,
+  ""summary"": ""Significant AI/tech development with major implications"",
+  ""insights"": [
+    ""Important technological progress"",
+    ""Strategic industry impact""
+  ]
+}",191,"{
+  ""relevance_score"": <1-10>, ""<1 sentence>"", ""<1 sentence>"", [""<key point 1>"", ""<key point 2>""]}
+user {
+
+  ""<1 sentence>"", ""<1 sentence>"", ""<1 sentence>"", ""<key point 1>"", ""<key point 2>"", ""<key point 3>"", ""<key point 4>"", ""<key point 5>"", ""<key point 6>"", ""<key point 7>"", ""<key point 8>"", ""<key p...",1864

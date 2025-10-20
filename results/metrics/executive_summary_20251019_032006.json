@@ -1,0 +1,35 @@
+{
+  "evaluation_date": "2025-10-19T03:20:06.648029",
+  "winner": {
+    "overall": "tinker",
+    "metrics_won": 7,
+    "total_metrics": 7,
+    "win_rate": 1.0
+  },
+  "model_comparison": {
+    "base": {
+      "overall_quality_score": 0.3301546976034611,
+      "json_valid_rate": 0.0,
+      "rouge1": 0.05013691219309198,
+      "bertscore_f1": 0.8002885460853577,
+      "response_length_cv": 0,
+      "avg_response_length": 0
+    },
+    "tinker": {
+      "overall_quality_score": 0.8674321668488639,
+      "json_valid_rate": 1.0,
+      "rouge1": 0.7714285714285714,
+      "bertscore_f1": 0.9649295806884766,
+      "response_length_cv": 0,
+      "avg_response_length": 0
+    },
+    "unsloth": {
+      "overall_quality_score": 0.2664157971202634,
+      "json_valid_rate": 0.0,
+      "rouge1": 0.031104651162790698,
+      "bertscore_f1": 0.7720507740974426,
+      "response_length_cv": 0,
+      "avg_response_length": 0
+    }
+  }
+}

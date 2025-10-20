@@ -1,0 +1,233 @@
+{
+  "metadata": {
+    "evaluation_date": "2025-10-19T03:20:06.648029",
+    "timestamp": "20251019_032006",
+    "total_test_examples": 246,
+    "models_evaluated": [
+      "base",
+      "tinker",
+      "unsloth"
+    ],
+    "metrics_included": {
+      "basic": [
+        "Response Length (characters)",
+        "Word Count",
+        "Consistency (Coefficient of Variation)",
+        "Success Rate"
+      ],
+      "advanced": [
+        "JSON Validation",
+        "ROUGE Scores (1, 2, L, Lsum)",
+        "BERTScore F1",
+        "Sentence-BERT Semantic Similarity",
+        "Toxicity Detection"
+      ]
+    }
+  },
+  "basic_metrics": {
+    "base": {
+      "response_length": {
+        "mean": 0,
+        "std": 0,
+        "coefficient_of_variation": 0
+      },
+      "word_count": {
+        "mean": 0
+      },
+      "success_rate": {
+        "rate": 100.0
+      }
+    },
+    "tinker": {
+      "response_length": {
+        "mean": 0,
+        "std": 0,
+        "coefficient_of_variation": 0
+      },
+      "word_count": {
+        "mean": 0
+      },
+      "success_rate": {
+        "rate": 100.0
+      }
+    },
+    "unsloth": {
+      "response_length": {
+        "mean": 0,
+        "std": 0,
+        "coefficient_of_variation": 0
+      },
+      "word_count": {
+        "mean": 0
+      },
+      "success_rate": {
+        "rate": 100.0
+      }
+    }
+  },
+  "advanced_metrics": {
+    "base": {
+      "json_valid_rate": 0.0,
+      "has_summary_rate": 1.0,
+      "avg_rouge1": 0.05013691219309198,
+      "avg_rouge2": 0.0,
+      "avg_rougeL": 0.04480357885975864,
+      "avg_rougeLsum": 0.05013691219309198,
+      "avg_bertscore_f1": 0.8002885460853577,
+      "avg_semantic_similarity": 0.35540017783641814,
+      "avg_max_toxicity": 0.YOUR_API_KEY_HERE,
+      "toxic_rate": 0.0,
+      "total_examples": 5,
+      "valid_json_count": 0,
+      "toxic_count": 0.0,
+      "model_name": "base"
+    },
+    "tinker": {
+      "json_valid_rate": 1.0,
+      "has_summary_rate": 1.0,
+      "avg_rouge1": 0.7714285714285714,
+      "avg_rouge2": 0.6333333333333333,
+      "avg_rougeL": 0.7714285714285714,
+      "avg_rougeLsum": 0.7714285714285714,
+      "avg_bertscore_f1": 0.9649295806884766,
+      "avg_semantic_similarity": 0.8469093203544616,
+      "avg_max_toxicity": 0.00039277487667277455,
+      "toxic_rate": 0.0,
+      "total_examples": 5,
+      "valid_json_count": 5,
+      "toxic_count": 0.0,
+      "model_name": "tinker"
+    },
+    "unsloth": {
+      "json_valid_rate": 0.0,
+      "has_summary_rate": 1.0,
+      "avg_rouge1": 0.031104651162790698,
+      "avg_rouge2": 0.0,
+      "avg_rougeL": 0.02180232558139535,
+      "avg_rougeLsum": 0.02180232558139535,
+      "avg_bertscore_f1": 0.7720507740974426,
+      "avg_semantic_similarity": 0.12109584771096707,
+      "avg_max_toxicity": 0.YOUR_API_KEY_HERE,
+      "toxic_rate": 0.0,
+      "total_examples": 5,
+      "valid_json_count": 0,
+      "toxic_count": 0.0,
+      "model_name": "unsloth"
+    }
+  },
+  "combined_analysis": {
+    "base": {
+      "overall_quality_score": 0.3301546976034611,
+      "format_compliance": {
+        "json_valid_rate": 0.0,
+        "has_summary_rate": 1.0
+      },
+      "summary_quality": {
+        "rouge1": 0.05013691219309198,
+        "rouge2": 0.0,
+        "rougeL": 0.04480357885975864
+      },
+      "semantic_understanding": {
+        "bertscore_f1": 0.8002885460853577,
+        "sbert_similarity": 0.35540017783641814
+      },
+      "consistency": {
+        "response_length_cv": 0,
+        "avg_response_length": 0,
+        "avg_word_count": 0
+      },
+      "safety": {
+        "avg_toxicity": 0.YOUR_API_KEY_HERE,
+        "toxic_rate": 0.0
+      }
+    },
+    "tinker": {
+      "overall_quality_score": 0.8674321668488639,
+      "format_compliance": {
+        "json_valid_rate": 1.0,
+        "has_summary_rate": 1.0
+      },
+      "summary_quality": {
+        "rouge1": 0.7714285714285714,
+        "rouge2": 0.6333333333333333,
+        "rougeL": 0.7714285714285714
+      },
+      "semantic_understanding": {
+        "bertscore_f1": 0.9649295806884766,
+        "sbert_similarity": 0.8469093203544616
+      },
+      "consistency": {
+        "response_length_cv": 0,
+        "avg_response_length": 0,
+        "avg_word_count": 0
+      },
+      "safety": {
+        "avg_toxicity": 0.00039277487667277455,
+        "toxic_rate": 0.0
+      }
+    },
+    "unsloth": {
+      "overall_quality_score": 0.2664157971202634,
+      "format_compliance": {
+        "json_valid_rate": 0.0,
+        "has_summary_rate": 1.0
+      },
+      "summary_quality": {
+        "rouge1": 0.031104651162790698,
+        "rouge2": 0.0,
+        "rougeL": 0.02180232558139535
+      },
+      "semantic_understanding": {
+        "bertscore_f1": 0.7720507740974426,
+        "sbert_similarity": 0.12109584771096707
+      },
+      "consistency": {
+        "response_length_cv": 0,
+        "avg_response_length": 0,
+        "avg_word_count": 0
+      },
+      "safety": {
+        "avg_toxicity": 0.YOUR_API_KEY_HERE,
+        "toxic_rate": 0.0
+      }
+    }
+  },
+  "summary": {
+    "winner": {
+      "overall": "tinker",
+      "metrics_won": 7,
+      "total_metrics": 7,
+      "win_rate": 1.0
+    },
+    "rankings": {
+      "by_overall_quality": [
+        {
+          "model": "tinker",
+          "score": 0.8674321668488639
+        },
+        {
+          "model": "base",
+          "score": 0.3301546976034611
+        },
+        {
+          "model": "unsloth",
+          "score": 0.2664157971202634
+        }
+      ],
+      "by_consistency": [
+        {
+          "model": "base",
+          "cv": 0
+        },
+        {
+          "model": "tinker",
+          "cv": 0
+        },
+        {
+          "model": "unsloth",
+          "cv": 0
+        }
+      ]
+    }
+  }
+}

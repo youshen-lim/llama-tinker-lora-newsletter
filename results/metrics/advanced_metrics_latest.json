@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "evaluation_date": "2025-10-19T03:15:49.453632",
+    "timestamp": "20251019_031549",
+    "total_test_examples": 246,
+    "models_evaluated": [
+      "base",
+      "tinker",
+      "unsloth"
+    ]
+  },
+  "advanced_metrics": {
+    "base": {
+      "json_valid_rate": 0.0,
+      "has_summary_rate": 1.0,
+      "avg_rouge1": 0.05013691219309198,
+      "avg_rouge2": 0.0,
+      "avg_rougeL": 0.04480357885975864,
+      "avg_rougeLsum": 0.05013691219309198,
+      "avg_bertscore_f1": 0.8002885460853577,
+      "avg_semantic_similarity": 0.35540017783641814,
+      "avg_max_toxicity": 0.YOUR_API_KEY_HERE,
+      "toxic_rate": 0.0,
+      "total_examples": 5,
+      "valid_json_count": 0,
+      "toxic_count": 0.0,
+      "model_name": "base"
+    },
+    "tinker": {
+      "json_valid_rate": 1.0,
+      "has_summary_rate": 1.0,
+      "avg_rouge1": 0.7714285714285714,
+      "avg_rouge2": 0.6333333333333333,
+      "avg_rougeL": 0.7714285714285714,
+      "avg_rougeLsum": 0.7714285714285714,
+      "avg_bertscore_f1": 0.9649295806884766,
+      "avg_semantic_similarity": 0.8469093203544616,
+      "avg_max_toxicity": 0.00039277487667277455,
+      "toxic_rate": 0.0,
+      "total_examples": 5,
+      "valid_json_count": 5,
+      "toxic_count": 0.0,
+      "model_name": "tinker"
+    },
+    "unsloth": {
+      "json_valid_rate": 0.0,
+      "has_summary_rate": 1.0,
+      "avg_rouge1": 0.031104651162790698,
+      "avg_rouge2": 0.0,
+      "avg_rougeL": 0.02180232558139535,
+      "avg_rougeLsum": 0.02180232558139535,
+      "avg_bertscore_f1": 0.7720507740974426,
+      "avg_semantic_similarity": 0.12109584771096707,
+      "avg_max_toxicity": 0.YOUR_API_KEY_HERE,
+      "toxic_rate": 0.0,
+      "total_examples": 5,
+      "valid_json_count": 0,
+      "toxic_count": 0.0,
+      "model_name": "unsloth"
+    }
+  }
+}
