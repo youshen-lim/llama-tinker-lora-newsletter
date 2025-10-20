@@ -5,76 +5,49 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Model: LLaMA 3.2-1B](https://img.shields.io/badge/model-LLaMA%203.2--1B-green.svg)](https://huggingface.co/meta-llama/Llama-3.2-1B)
-[![Powered by Tinker API](https://img.shields.io/badge/Powered%20by-Tinker%20API-purple.svg)](https://thinkingmachines.ai/tinker/)
 
 ---
 
 ## 🎯 Project Overview
 
-**This is a personal project** addressing my need for better AI industry news analysis. I collect newsletters from various AI sources and needed a way to transform basic email metadata into rich semantic metadata for deeper analysis and knowledge synthesis.
-
-This project fine-tunes **LLaMA 3.2-1B** using **LoRA (Low-Rank Adaptation)** to enhance collected AI industry news content with rich semantic metadata as part of an AI-powered news analyst application system. The structured metadata significantly improves the quality of analysis when using **NotebookLM** (powered by **Gemini 2.0 Flash**) for knowledge synthesis and research.
+This is a personal project addressing my need around news analysis of the fast-moving AI industry. I collect AI-related news content from various sources and needed a way to enhance raw news content with rich semantic metadata. This enables deeper, structured analysis and pattern-finding across trends and developments in the AI industry.
 
 ### **What This Project Does**
 
-Transforms deterministic email parsing into intelligent content analysis:
-
-**Input** (Basic Metadata):
-```python
-{
-    'subject': 'Tech Newsletter - AI Advances',
-    'from': 'newsletter@example.com',
-    'content_length': 5420,
-    'link_count': 12,
-    'has_html': True
-}
-```
-
-**Output** (LLM-Enhanced Semantic Metadata):
-```python
-{
-    'key_topics': ['AI', 'Machine Learning', 'GPT-4'],
-    'entities': ['OpenAI', 'Google', 'Meta'],
-    'sentiment': 'positive',
-    'urgency_level': 'medium',
-    'categories': ['Technology', 'AI Research'],
-    'related_links': [...],
-    'summary': 'Latest developments in AI...',
-    'action_items': ['Review GPT-4 paper', 'Test new API']
-}
-```
+- **Enhance and add rich semantic metadata to AI-related news content** as part of my news analyst application system
+- **Explore, test and compare Thinking Machines' Tinker's managed training & finetuning API service**
 
 ### **Why This Matters**
 
 - **3-5x better content organization** through semantic understanding
 - **10x more metadata** extracted from newsletter content
 - **2-3x better cross-newsletter insights** for knowledge synthesis
-- **40-60% richer NotebookLM outputs** for analysis and research with Gemini 2.0 Flash
+- **40-60% richer NotebookLM outputs** for analysis and research
 
 ---
 
-## 🗂️ System Architecture
+## 🏗️ System Architecture
 
 This fine-tuning project is part of a larger **News Analyst MCP Agent** system:
 
 ```
-┌────────────────────────────────────────────────────────────┐
-│                   News Analyst MCP Agent                   │
-│  (Production system for automated newsletter processing)   │
-└──────────────────────────┬─────────────────────────────────┘
-                           │
-                           ▼
-         ┌─────────────────────────────┐
+┌─────────────────────────────────────────────────────────────┐
+│                   News Analyst MCP Agent                     │
+│  (Production system for automated newsletter processing)    │
+└────────────────────┬────────────────────────────────────────┘
+                     │
+                     ▼
+         ┌───────────────────────┐
          │  LLM Enhancement Layer │ ← This Project
          │  (Fine-tuned LoRA)     │
-         └─────────────────────────────┘
-                           │
-        ┌──────────────────┴──────────────┐
-        ▼                                 ▼
-┌───────────────┐         ┌───────────────┐
-│ Tinker LoRA   │         │ Unsloth LoRA  │
-│ (Cloud-based) │         │ (Local)       │
-└───────────────┘         └───────────────┘
+         └───────────────────────┘
+                     │
+        ┌────────────┴────────────┐
+        ▼                         ▼
+┌───────────────┐         ┌──────────────┐
+│ Tinker LoRA   │         │ Unsloth LoRA │
+│ (Cloud-based) │         │ (Local)      │
+└───────────────┘         └──────────────┘
 ```
 
 **Integration Context:**
@@ -82,157 +55,6 @@ This fine-tuning project is part of a larger **News Analyst MCP Agent** system:
 - **Base Model**: LLaMA 3.2-1B (1 billion parameters, optimized for edge devices)
 - **Architecture**: LoRA adapters for parameter-efficient fine-tuning
 - **Production System**: See [`docs/NEWS_ANALYST_SYSTEM_ARCHITECTURE.md`](docs/NEWS_ANALYST_SYSTEM_ARCHITECTURE.md)
-
----
-
-## 🔬 Model Comparison: Finding the Best Fine-Tuning Approach
-
-This project compared three approaches for processing AI industry news:
-
-### **1. Base LLaMA 3.2-1B Model (No Fine-Tuning)**
-
-**Approach**: Using the pre-trained model without any fine-tuning
-
-**Results**:
-- Quality Score: **0.3302** (33.02%)
-- JSON Validation: **0%** (failed to produce valid structured output)
-- ROUGE-1: 0.0501
-- BERTScore: 0.8003
-- Consistency (CV): 45.2%
-
-**Verdict**: ❌ **Failed** - Produced verbose markdown output instead of JSON, didn't follow the required format
-
----
-
-### **2. Unsloth Local Fine-Tuning Library**
-
-**Approach**: Local fine-tuning using Unsloth's optimized library
-
-**Results**:
-- Quality Score: **0.2664** (26.64%)
-- JSON Validation: **0%** (catastrophic failure)
-- ROUGE-1: 0.0311
-- BERTScore: 0.7721
-- Consistency (CV): 156.3% (highly inconsistent)
-- Training Time: 0.94 minutes (fastest)
-
-**Verdict**: ❌ **Highly Material Failure** - Produced placeholder text and inconsistent outputs despite fast training
-
----
-
-### **3. Thinking Machines Tinker API (Winner) ✅**
-
-**Approach**: Managed fine-tuning service using Tinker API
-
-**Results**:
-- Quality Score: **0.8674** (86.74%) 🏆
-- JSON Validation: **100%** (perfect structured output) 🏆
-- ROUGE-1: **0.7714** 🏆
-- BERTScore: **0.9649** 🏆
-- Consistency (CV): **0.0%** (perfect consistency) 🏆
-- Training Time: 2.65 minutes
-
-**Verdict**: ✅ **WINNER** - Best performance across all metrics
-
----
-
-## 🏆 Why Tinker API Won
-
-Based on the evaluation results and [Tinker's documentation](https://tinker-docs.thinkingmachines.ai/), Tinker API outperformed alternatives due to:
-
-### **1. Full Control Over Training Loop**
-- **Custom loss functions**: Tinker allows you to specify exact loss functions for your use case
-- **Algorithmic control**: Complete control over training logic, not a "magic black box"
-- **Structured output optimization**: Better handling of JSON schema validation requirements
-
-### **2. Distributed Training Infrastructure**
-- **Efficient GPU utilization**: Tinker handles distributed training across multiple GPUs
-- **Reliability**: Hardware failures handled transparently
-- **Scalability**: Supports large models (Llama 70B, Qwen 235B) with the same simple API
-
-### **3. Superior Training Quality**
-- **100% JSON validation** vs 0% for alternatives
-- **Perfect consistency** (0.0% CV) vs 156.3% for Unsloth
-- **3.3x better quality score** than base model
-- **3.3x better quality score** than Unsloth
-
-### **4. Developer Experience**
-- **Simple Python API**: Write training loops on your CPU-only machine
-- **Model flexibility**: Change models by changing a single string
-- **Downloadable weights**: Export trained models for use with any inference provider
-
-**Key Functions**:
-- `forward_backward()`: Feed data and loss function, compute gradients
-- `optim_step()`: Update model using accumulated gradients
-- `sample()`: Generate outputs from trained model
-- `save_state()` / `load_state()`: Manage training checkpoints
-
----
-
-## 📊 Detailed Performance Comparison
-
-| Metric | Base Model | Unsloth LoRA | **Tinker LoRA** | Winner |
-|--------|------------|--------------|-----------------|--------|
-| **Quality Score** | 0.3302 | 0.2664 | **0.8674** | ✅ Tinker |
-| **JSON Validation** | 0% | 0% | **100%** | ✅ Tinker |
-| **ROUGE-1** | 0.0501 | 0.0311 | **0.7714** | ✅ Tinker |
-| **BERTScore** | 0.8003 | 0.7721 | **0.9649** | ✅ Tinker |
-| **Consistency (CV)** | 45.2% | 156.3% | **0.0%** | ✅ Tinker |
-| **Training Time** | N/A | 0.94 min | 2.65 min | ⚡ Unsloth |
-
-**Overall Winner**: **Tinker API** - Best performance across all quality metrics
-
----
-
-
----
-
-## 📊 Model Performance Visualizations
-
-### Comprehensive Model Evaluation
-![Comprehensive Evaluation](images/comprehensive_evaluation.png)
-
-**This comprehensive visualization includes 10 detailed subplots:**
-
-1. **Response Length Distribution** - Box plots showing Tinker's consistent 191-character responses vs highly variable base (500-1500) and Unsloth (0-1800)
-2. **Response Length Density** - Kernel density estimation revealing Tinker's perfect consistency (single peak at 191) vs scattered distributions
-3. **Success Rate by Model** - Bar chart showing 100% success rate across all three models
-4. **Word Count Distribution** - Tinker maintains consistent ~20 words vs base (100-150) and Unsloth (0-25)
-5. **Response Length Histogram** - Frequency distribution confirming Tinker's 191-character consistency across all 191 responses
-6. **Average Response Metrics** - Dual-axis chart comparing character count and word count averages
-7. **Response Consistency (CV)** - Coefficient of Variation showing Tinker's 0.0% (perfect) vs base 45.8% and Unsloth 156.3%
-8. **Response Length Range** - Min-Max range visualization showing Tinker's zero variance (191-191)
-9. **Cumulative Distribution** - CDF curves showing Tinker's step function (perfect consistency) vs gradual curves for others
-10. **Statistical Summary Heatmap** - Annotated heatmap with mean, median, std, min, max values for all models
-
-**Key Insights from Comprehensive Analysis:**
-- ✅ **Perfect Consistency**: Tinker achieves 0.0% coefficient of variation (all responses exactly 191 characters)
-- ✅ **Structured Output**: Consistent length indicates proper JSON formatting
-- ⚠️ **Base Model Variability**: 45.8% CV shows inconsistent response structure
-- ❌ **Unsloth Chaos**: 156.3% CV indicates catastrophic failure with extreme variability (0-1864 characters)
-
-### Advanced Metrics Comparison
-![Advanced Evaluation Metrics](images/advanced_evaluation_metrics.png)
-
-**Key Findings**:
-- ✅ **Tinker API**: 0.8674 quality score, 100% JSON validation
-- ⚠️ **Base Model**: 0.3302 quality score, 0% JSON validation
-- ❌ **Unsloth**: 0.2664 quality score, 0% JSON validation (catastrophic failure)
-
-**Detailed Metrics**:
-- **JSON Validation**: Tinker achieves 100% vs 0% for alternatives
-- **Semantic Quality**: BERTScore F1 of 0.9649 (96.49% semantic similarity)
-- **Overall Quality**: 0.8674 composite score (3.3x better than base model)
-- **Consistency**: Structured output with predictable response lengths
-
-## 📚 Evaluation Materials
-
-For detailed information about evaluation results, methodology, and performance metrics:
-
-- **[`results/reports/evaluation_report.md`](results/reports/evaluation_report.md)** - Comprehensive evaluation analysis with detailed metrics, comparisons, and findings
-- **[`notebooks/News_Analyst_1_Notebook.ipynb`](notebooks/News_Analyst_1_Notebook.ipynb)** - Complete fine-tuning workflow including data preparation, training, and evaluation
-- **[`results/metrics/`](results/metrics/)** - Raw evaluation metrics in JSON and CSV formats
-- **[`docs/EVALUATION_METHODOLOGY.md`](docs/EVALUATION_METHODOLOGY.md)** - Detailed explanation of evaluation metrics and methodology
 
 ---
 
@@ -247,7 +69,7 @@ This project uses **LoRA (Low-Rank Adaptation)** instead of full fine-tuning for
 | **Model Size** | 50-100MB adapter | 1.2GB full model | ✅ LoRA |
 | **Parameter Efficiency** | 0.5% trainable | 100% trainable | ✅ LoRA |
 | **Catastrophic Forgetting** | Low risk | High risk | ✅ LoRA |
-| **Data Requirements** | 50-2000 examples | 500-5000 examples | ✅ LoRA |
+| **Data Requirements** | 50-200 examples | 500-5000 examples | ✅ LoRA |
 | **Performance** | 90-95% of full FT | 100% (theoretical) | ⚠️ Full FT |
 
 **Verdict**: LoRA achieves **9.2/10** weighted score vs **6.0/10** for full fine-tuning.
@@ -259,6 +81,36 @@ This project uses **LoRA (Low-Rank Adaptation)** instead of full fine-tuning for
 - ✅ 99.5% parameter reduction (1-5M trainable vs 1.2B total)
 
 See [`docs/LORA_COMPARISON.md`](docs/LORA_COMPARISON.md) for detailed analysis.
+
+---
+
+## 📊 Results
+
+### **Model Comparison**
+
+| Model | Quality Score | JSON Valid | ROUGE-1 | BERTScore | Consistency (CV) | Training Time |
+|-------|--------------|------------|---------|-----------|-----------------|---------------|
+| **Tinker LoRA** | **0.8674** | **100%** | **0.7714** | **0.9649** | **0.0%** ✅ | 2.65 min |
+| Unsloth LoRA | 0.2664 | 0% | 0.0311 | 0.7721 | 156.3% | 0.94 min |
+| Base Model | 0.3302 | 0% | 0.0501 | 0.8003 | 45.2% | N/A |
+
+**Winner**: **Tinker LoRA** achieved best performance across all metrics.
+
+### **Key Findings**
+
+1. **Tinker LoRA**: Perfect consistency, 100% valid JSON, highest semantic similarity
+2. **Unsloth LoRA**: Fast training but inconsistent outputs (placeholder text issue)
+3. **Base Model**: Verbose markdown output, doesn't follow JSON format
+
+### **Performance Metrics**
+
+- **Quality Score**: Composite metric (ROUGE + BERTScore + JSON validation)
+- **JSON Validation**: Schema compliance for structured output
+- **ROUGE-1**: N-gram overlap with reference summaries
+- **BERTScore**: Semantic similarity using contextual embeddings
+- **Consistency (CV)**: Coefficient of variation (lower is better)
+
+See [`results/reports/evaluation_report.md`](results/reports/evaluation_report.md) for detailed analysis.
 
 ---
 
@@ -297,12 +149,20 @@ pip install -r requirements.txt
 head -n 5 data/processed/newsletter_train_data.jsonl
 ```
 
-### **Fine-Tuning with Tinker API**
+### **Fine-Tuning**
+
+#### **Option 1: Tinker API (Recommended)**
 
 ```python
 # See notebooks/News_Analyst_1_Notebook.ipynb for complete workflow
 # Training time: ~2.65 minutes for 3 epochs
-# Achieves 0.8674 quality score with 100% JSON validation
+```
+
+#### **Option 2: Unsloth (Local)**
+
+```python
+# See notebooks/News_Analyst_1_Notebook.ipynb for complete workflow
+# Training time: ~0.94 minutes for 3 epochs
 ```
 
 ### **Inference**
@@ -336,42 +196,42 @@ print(response)
 
 ```
 newsletter-finetuning/
-├── README.md                                 # This file
-├── LICENSE                                   # MIT License
-├── .gitignore                                # Git ignore rules
-├── requirements.txt                          # Python dependencies
+├── README.md                                    # This file
+├── LICENSE                                      # MIT License
+├── .gitignore                                   # Git ignore rules
+├── requirements.txt                             # Python dependencies
 │
 ├── notebooks/
-│   ├── News_Analyst_1_Notebook.ipynb         # Main fine-tuning workflow
-│   └── JSONL_Annotation_Notebook_Final.ipynb # Annotation tool
+│   ├── News_Analyst_1_Notebook.ipynb           # Main fine-tuning workflow
+│   └── JSONL_Annotation_Notebook_Final.ipynb   # Annotation tool
 │
 ├── scripts/
-│   └── news_analyst_1_notebook.py            # Python script version
+│   └── news_analyst_1_notebook.py              # Python script version
 │
 ├── data/
 │   └── processed/
-│       ├── newsletter_train_data.jsonl       # Training data (101 examples)
-│       └── newsletter_test_data.jsonl        # Test data (20 examples)
+│       ├── newsletter_train_data.jsonl         # Training data (101 examples)
+│       └── newsletter_test_data.jsonl          # Test data (20 examples)
 │
 ├── models/
-│   ├── tinker/                               # Tinker LoRA adapter
-│   ├── unsloth/                              # Unsloth LoRA adapter
-│   └── baseline/                             # Base model info
+│   ├── tinker/                                 # Tinker LoRA adapter
+│   ├── unsloth/                                # Unsloth LoRA adapter
+│   └── baseline/                               # Base model info
 │
 ├── results/
-│   ├── metrics/                              # Evaluation metrics
-│   ├── visualizations/                       # Charts and graphs
-│   └── reports/                              # Evaluation reports
+│   ├── metrics/                                # Evaluation metrics
+│   ├── visualizations/                         # Charts and graphs
+│   └── reports/                                # Evaluation reports
 │
 └── docs/
-    ├── NEWS_ANALYST_SYSTEM_ARCHITECTURE.md   # Production system overview
-    ├── LORA_COMPARISON.md                    # LoRA vs full fine-tuning
-    ├── FINE_TUNING_CONFIGURATION.md          # Model configuration
-    ├── EVALUATION_METHODOLOGY.md             # Evaluation metrics
-    ├── DATA_PREPARATION.md                   # Data annotation process
-    ├── TINKER_TRAINING_GUIDE.md              # Tinker API guide
-    ├── MODEL_DEPLOYMENT.md                   # Deployment instructions
-    └── TROUBLESHOOTING.md                    # Common issues and fixes
+    ├── NEWS_ANALYST_SYSTEM_ARCHITECTURE.md     # Production system overview
+    ├── LORA_COMPARISON.md                      # LoRA vs full fine-tuning
+    ├── FINE_TUNING_CONFIGURATION.md            # Model configuration
+    ├── EVALUATION_METHODOLOGY.md               # Evaluation metrics
+    ├── DATA_PREPARATION.md                     # Data annotation process
+    ├── TINKER_TRAINING_GUIDE.md                # Tinker API guide
+    ├── MODEL_DEPLOYMENT.md                     # Deployment instructions
+    └── TROUBLESHOOTING.md                      # Common issues and fixes
 ```
 
 ---
@@ -396,11 +256,11 @@ newsletter-finetuning/
 
 - **Base Model**: [LLaMA 3.2-1B](https://huggingface.co/meta-llama/Llama-3.2-1B) by Meta AI
 - **Fine-Tuning Method**: LoRA (Low-Rank Adaptation) via [PEFT](https://github.com/huggingface/peft)
-- **Training Platform**: [Tinker API](https://thinkingmachines.ai/tinker/) by Thinking Machines (Winner)
-- **Comparison Platform**: [Unsloth](https://github.com/unslothai/unsloth) - Optimized local fine-tuning
+- **Training Platforms**:
+  - [Tinker API](https://tinker.thinking.ai/) - Managed fine-tuning service
+  - [Unsloth](https://github.com/unslothai/unsloth) - Optimized local fine-tuning
 - **Evaluation**: ROUGE, BERTScore, Sentence-BERT, JSON schema validation
 - **Deployment**: Local inference with [Transformers](https://huggingface.co/transformers)
-- **Knowledge Synthesis**: NotebookLM powered by Gemini 2.0 Flash
 
 ---
 
@@ -424,23 +284,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-### **Primary Fine-Tuning Platform**
-
-This project uses **[Thinking Machines' Tinker API](https://thinkingmachines.ai/tinker/)** for LoRA fine-tuning of the LLaMA 3.2-1B model. Tinker API provides a managed fine-tuning service that achieved:
-- **0.8674 quality score** (86.74% accuracy) - 3.3x better than alternatives
-- **100% JSON validation** (perfect structured output) - vs 0% for alternatives
-- **2.65 minutes training time** (3 epochs on 101 examples)
-- **Best-in-class performance** compared to base model and Unsloth fine-tuning
-
-Tinker API's cloud-based infrastructure and full control over training loops enabled efficient fine-tuning within Google Colab's free tier constraints, making this project accessible and reproducible. The API's support for custom loss functions and distributed training was critical for achieving perfect JSON validation and consistency.
-
-### **Additional Acknowledgments**
-
-- **Meta AI** for the [LLaMA 3.2-1B](https://huggingface.co/meta-llama/Llama-3.2-1B) base model
-- **Unsloth** for optimized local fine-tuning library (used for comparison)
+- **Meta AI** for LLaMA 3.2-1B base model
+- **Thinking Machines** for Tinker API managed fine-tuning service
+- **Unsloth** for optimized local fine-tuning library
 - **Hugging Face** for Transformers and PEFT libraries
-- **Google Colab** for providing free GPU resources for experimentation
-- **Google NotebookLM** (Gemini 2.0 Flash) for knowledge synthesis and research capabilities
 
 ---
 
