@@ -184,6 +184,47 @@ Based on the evaluation results and [Tinker's documentation](https://tinker-docs
 
 ---
 
+
+---
+
+## 📊 Model Performance Visualizations
+
+### Advanced Metrics Comparison
+![Advanced Evaluation Metrics](images/advanced_evaluation_metrics.png)
+
+### Comprehensive Model Evaluation
+![Comprehensive Evaluation](images/comprehensive_evaluation.png)
+
+**This comprehensive visualization includes 10 detailed subplots:**
+
+1. **Response Length Distribution** - Box plots showing Tinker's consistent 191-character responses vs highly variable base (500-1500) and Unsloth (0-1800)
+2. **Response Length Density** - Kernel density estimation revealing Tinker's perfect consistency (single peak at 191) vs scattered distributions
+3. **Success Rate by Model** - Bar chart showing 100% success rate across all three models
+4. **Word Count Distribution** - Tinker maintains consistent ~20 words vs base (100-150) and Unsloth (0-25)
+5. **Response Length Histogram** - Frequency distribution confirming Tinker's 191-character consistency across all 191 responses
+6. **Average Response Metrics** - Dual-axis chart comparing character count and word count averages
+7. **Response Consistency (CV)** - Coefficient of Variation showing Tinker's 0.0% (perfect) vs base 45.8% and Unsloth 156.3%
+8. **Response Length Range** - Min-Max range visualization showing Tinker's zero variance (191-191)
+9. **Cumulative Distribution** - CDF curves showing Tinker's step function (perfect consistency) vs gradual curves for others
+10. **Statistical Summary Heatmap** - Annotated heatmap with mean, median, std, min, max values for all models
+
+**Key Insights from Comprehensive Analysis:**
+- ✅ **Perfect Consistency**: Tinker achieves 0.0% coefficient of variation (all responses exactly 191 characters)
+- ✅ **Structured Output**: Consistent length indicates proper JSON formatting
+- ⚠️ **Base Model Variability**: 45.8% CV shows inconsistent response structure
+- ❌ **Unsloth Chaos**: 156.3% CV indicates catastrophic failure with extreme variability (0-1864 characters)
+
+**Key Findings**:
+- ✅ **Tinker API**: 0.8674 quality score, 100% JSON validation
+- ⚠️ **Base Model**: 0.3302 quality score, 0% JSON validation
+- ❌ **Unsloth**: 0.2664 quality score, 0% JSON validation (catastrophic failure)
+
+**Detailed Metrics**:
+- **JSON Validation**: Tinker achieves 100% vs 0% for alternatives
+- **Semantic Quality**: BERTScore F1 of 0.9649 (96.49% semantic similarity)
+- **Overall Quality**: 0.8674 composite score (3.3x better than base model)
+- **Consistency**: Structured output with predictable response lengths
+
 ## 📚 Evaluation Materials
 
 For detailed information about evaluation results, methodology, and performance metrics:
