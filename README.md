@@ -37,17 +37,26 @@ This fine-tuning project is part of a larger **News Analyst MCP Agent** system:
 └────────────────────┬────────────────────────────────────────┘
                      │
                      ▼
-         ┌───────────────────────┐
-         │  LLM Enhancement Layer │ ← This Project
-         │  (Fine-tuned LoRA)     │
-         └───────────────────────┘
+         ┌───────────────────────────────────────┐
+         │  LLM Enhancement Layer                 │
+         │  (Fine-tuned LoRA - This is our       │
+         │   LoRA finetuning project)            │
+         │  Base Model: LLaMA 3.2-1B             │
+         └───────────────────────────────────────┘
                      │
         ┌────────────┴────────────┐
         ▼                         ▼
-┌───────────────┐         ┌──────────────┐
-│ Tinker LoRA   │         │ Unsloth LoRA │
-│ (Cloud-based) │         │ (Local)      │
-└───────────────┘         └──────────────┘
+┌──────────────────┐    ┌──────────────────┐
+│ Tinker LoRA      │    │ Unsloth LoRA     │
+│ Finetuning       │    │ Finetuning       │
+│ (Cloud-based)    │    │ (Local)          │
+└──────────────────┘    └──────────────────┘
+        │                         │
+        └────────────┬────────────┘
+                     ▼
+    Comparing performance of both
+    LoRA finetuning approaches for
+    newsletter enhancement use case
 ```
 
 **Integration Context:**
@@ -87,6 +96,14 @@ See [`docs/LORA_COMPARISON.md`](docs/LORA_COMPARISON.md) for detailed analysis.
 ## 📊 Results
 
 ### **Model Comparison**
+
+#### **Evaluation Visualizations**
+
+![Comprehensive Evaluation](images/comprehensive_evaluation.png)
+
+![Advanced Evaluation Metrics](images/advanced_evaluation_metrics.png)
+
+#### **Performance Metrics Table**
 
 | Model | Quality Score | JSON Valid | ROUGE-1 | BERTScore | Consistency (CV) | Training Time |
 |-------|--------------|------------|---------|-----------|-----------------|---------------|
