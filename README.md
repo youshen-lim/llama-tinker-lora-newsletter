@@ -1,6 +1,6 @@
 # 🤖 LLM-Powered News Content Enhancer
 
-**Fine-tuning LLaMA 3.2-1B with LoRA for Semantic Newsletter Analysis**
+**Fine-tuning LLaMA 3.2-1B with LoRA for Semantic News Content Analysis**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
@@ -20,8 +20,8 @@ This is a personal project addressing my need around news analysis of the fast-m
 ### **Why This Matters**
 
 - **3-5x better content organization** through semantic understanding
-- **10x more metadata** extracted from newsletter content
-- **2-3x better cross-newsletter insights** for knowledge synthesis
+- **10x more metadata** extracted from news content
+- **2-3x better cross-content insights** for knowledge synthesis
 - **40-60% richer NotebookLM outputs** for analysis and research
 
 ---
@@ -56,7 +56,7 @@ This fine-tuning project is part of a larger **News Analyst MCP Agent** system:
                      ▼
     Comparing performance of both
     LoRA finetuning approaches for
-    newsletter enhancement use case
+    news content enhancement use case
 ```
 
 **Integration Context:**
@@ -156,8 +156,8 @@ pip install -r requirements.txt
 
 ### **Training Data**
 
-- **Training examples**: 101 annotated newsletters
-- **Test examples**: 20 newsletters
+- **Training examples**: 101 annotated news content items
+- **Test examples**: 20 news content items
 - **Format**: JSONL with user/assistant message pairs
 - **Annotation**: Custom widget for manual annotation
 
@@ -199,8 +199,8 @@ model = model.merge_and_unload()
 tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.2-1B")
 
 # Run inference
-newsletter = "Your newsletter text here..."
-inputs = tokenizer(newsletter, return_tensors="pt")
+news_content = "Your news content text here..."
+inputs = tokenizer(news_content, return_tensors="pt")
 outputs = model.generate(**inputs, max_new_tokens=500)
 response = tokenizer.decode(outputs[0], skip_special_tokens=True)
 
@@ -212,7 +212,7 @@ print(response)
 ## 📁 Project Structure
 
 ```
-newsletter-finetuning/
+news-content-finetuning/
 ├── README.md                                    # This file
 ├── LICENSE                                      # MIT License
 ├── .gitignore                                   # Git ignore rules
@@ -227,8 +227,8 @@ newsletter-finetuning/
 │
 ├── data/
 │   └── processed/
-│       ├── newsletter_train_data.jsonl         # Training data (101 examples)
-│       └── newsletter_test_data.jsonl          # Test data (20 examples)
+│       ├── newsletter_train_data.jsonl         # Training data (101 news content items)
+│       └── newsletter_test_data.jsonl          # Test data (20 news content items)
 │
 ├── models/
 │   ├── tinker/                                 # Tinker LoRA adapter

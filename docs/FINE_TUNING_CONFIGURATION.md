@@ -53,8 +53,8 @@ ollama show llama3.2:base-backup --modelfile > base-model.Modelfile
 ✅ Backup created: llama3.2:base-backup
 ✅ Functionality verified: Both models tested successfully
 ✅ Performance optimized: 18.7s average (was 80-95s)
-✅ JSON capability: Newsletter analysis working
-✅ Production ready: 21 newsletters in 6.6 minutes
+✅ JSON capability: News content analysis working
+✅ Production ready: 21 news content items in 6.6 minutes
 ```
 
 ---
@@ -64,10 +64,10 @@ ollama show llama3.2:base-backup --modelfile > base-model.Modelfile
 ### **Speed Optimization Results**
 ```yaml
 Performance Improvement: 78% faster processing
-Before: 80-95 seconds per newsletter
-After: 18.7 seconds average per newsletter
+Before: 80-95 seconds per news content item
+After: 18.7 seconds average per news content item
 Target: Under 20 seconds (✅ ACHIEVED)
-Full Workflow: 21 newsletters in 6.6 minutes (was 28+ minutes)
+Full Workflow: 21 news content items in 6.6 minutes (was 28+ minutes)
 ```
 
 ### **Optimized Model Parameters**
@@ -150,9 +150,9 @@ model, tokenizer = FastLanguageModel.from_pretrained(
 
 ### **Training Configuration (Performance Optimized)**
 ```python
-# Fine-tuning parameters optimized for speed and newsletter analysis
+# Fine-tuning parameters optimized for speed and news content analysis
 training_config = {
-    "model_name": "llama3.2-newsletter-analyst",
+    "model_name": "llama3.2-news-content-analyst",
     "base_model": "unsloth/Llama-3.2-3B-Instruct",
     "max_seq_length": 2048,  # Reduced from 4096 for speed
     "load_in_4bit": True,
@@ -192,7 +192,7 @@ training_config = {
 ### **Data Sources**
 ```yaml
 Primary Source: Task Scheduler Run (October 15, 2025)
-Newsletters Processed: 21 (18 TLDR + 3 Import AI)
+News Content Items Processed: 21 (18 TLDR + 3 Import AI)
 Intelligence Metadata: Available in logs and summary files
 Training Examples: ~21 initial examples for annotation
 ```
@@ -246,14 +246,14 @@ Quality Threshold: Relevance score 6+ for training inclusion
 ### **Model Naming Strategy**
 ```yaml
 Development Models:
-  - llama3.2:newsletter-dev
-  - llama3.2:newsletter-exp-{date}
+  - llama3.2:news-content-dev
+  - llama3.2:news-content-exp-{date}
 
 Production Models:
-  - llama3.2:newsletter-analyst-v1  # First fine-tuned version
-  - llama3.2:newsletter-analyst-v2  # Improved version
-  - llama3.2:newsletter-analyst-best  # Best performing
-  - llama3.2:newsletter-analyst-prod  # Production deployment
+  - llama3.2:news-content-analyst-v1  # First fine-tuned version
+  - llama3.2:news-content-analyst-v2  # Improved version
+  - llama3.2:news-content-analyst-best  # Best performing
+  - llama3.2:news-content-analyst-prod  # Production deployment
 
 Backup Models:
   - llama3.2:base-backup  # Original baseline
@@ -266,7 +266,7 @@ Backup Models:
 # Then import to Ollama:
 
 # Create Optimized Modelfile
-echo 'FROM ./newsletter-analyst-v1.gguf
+echo 'FROM ./news-content-analyst-v1.gguf
 PARAMETER temperature 0.1
 PARAMETER top_p 0.9
 PARAMETER top_k 20
@@ -275,10 +275,10 @@ PARAMETER num_ctx 1024
 SYSTEM "Extract key tech insights. Respond with ONLY valid JSON, no other text."' > Modelfile
 
 # Import to Ollama
-ollama create llama3.2:newsletter-analyst-v1 -f Modelfile
+ollama create llama3.2:news-content-analyst-v1 -f Modelfile
 
 # Test the model
-ollama run llama3.2:newsletter-analyst-v1 "Test prompt"
+ollama run llama3.2:news-content-analyst-v1 "Test prompt"
 ```
 
 ### **Production Configuration Update**
@@ -287,7 +287,7 @@ ollama run llama3.2:newsletter-analyst-v1 "Test prompt"
 openai:
   base_url: "http://localhost:11434/v1"
   api_key: "ollama"
-  default_model: "llama3.2:newsletter-analyst-v1"  # Updated after validation
+  default_model: "llama3.2:news-content-analyst-v1"  # Updated after validation
 ```
 
 ---
@@ -313,7 +313,7 @@ ollama rm llama3.2:latest
 ollama cp llama3.2:base-backup llama3.2:latest
 
 # Option 3: Remove fine-tuned model
-ollama rm llama3.2:newsletter-analyst-v1
+ollama rm llama3.2:news-content-analyst-v1
 ```
 
 ### **Performance Comparison Framework**
@@ -323,7 +323,7 @@ python test_model_backup.py
 
 # Compare models:
 # - llama3.2:base-backup (baseline)
-# - llama3.2:newsletter-analyst-v1 (fine-tuned)
+# - llama3.2:news-content-analyst-v1 (fine-tuned)
 
 # Metrics to track:
 # - JSON parsing success rate
@@ -344,7 +344,7 @@ Llama Finetuning - Google Colab/
 ├── test_model_backup.py                  # Model verification script
 ├── model_backup_test_results_*.json      # Test results
 ├── JSONL_Annotation_Notebook.ipynb       # Colab annotation interface
-├── Newsletter_Analysis_FineTuning.ipynb  # Colab fine-tuning workflow
+├── News_Content_Analysis_FineTuning.ipynb  # Colab fine-tuning workflow
 ├── create_training_dataset.py            # Data extraction tool
 ├── create_sample_training_data.py        # Sample data generator
 ├── deploy_finetuned_model.py             # Local deployment script

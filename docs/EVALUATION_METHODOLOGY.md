@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes the comprehensive evaluation framework used to assess the fine-tuned LoRA models for newsletter analysis. The evaluation combines **basic quantitative metrics** with **advanced semantic metrics** to provide a holistic view of model performance.
+This document describes the comprehensive evaluation framework used to assess the fine-tuned LoRA models for news content analysis. The evaluation combines **basic quantitative metrics** with **advanced semantic metrics** to provide a holistic view of model performance.
 
 ---
 
@@ -16,10 +16,10 @@ This document describes the comprehensive evaluation framework used to assess th
 
 ### **Test Dataset**
 
-- **Size**: 20 newsletter examples
+- **Size**: 20 news content items
 - **Format**: JSONL with user/assistant message pairs
-- **Source**: Held-out test set from annotated newsletters
-- **Coverage**: Diverse newsletter types (tech, business, research)
+- **Source**: Held-out test set from annotated news content
+- **Coverage**: Diverse news content types (tech, business, research)
 
 ---
 
@@ -348,14 +348,14 @@ results = {
 1. **Use Tinker LoRA** - Best overall performance
 2. **Monitor JSON validation** - Critical for downstream processing
 3. **Track consistency** - Ensure stable outputs over time
-4. **Evaluate on new data** - Periodically test on fresh newsletters
+4. **Evaluate on new data** - Periodically test on fresh news content items
 
 ### **For Future Improvements**
 
 1. **Increase training data** - Current 101 examples could be expanded
 2. **Experiment with hyperparameters** - Learning rate, batch size, epochs
 3. **Try different LoRA ranks** - Current rank may not be optimal
-4. **Evaluate on diverse newsletters** - Test on different domains
+4. **Evaluate on diverse news content** - Test on different domains
 
 ---
 

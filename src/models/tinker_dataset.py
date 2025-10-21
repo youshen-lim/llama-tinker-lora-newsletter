@@ -1,9 +1,9 @@
 # ============================================================================
-# READY-TO-USE CODE CELLS FOR TINKER TRAINING WITH NEWSLETTER DATA
+# READY-TO-USE CODE CELLS FOR TINKER TRAINING WITH news_content DATA
 # ============================================================================
 #
 # These cells fix the issue where Tinker was training on the "no_robots" 
-# dataset instead of your newsletter data.
+# dataset instead of your news_content data.
 #
 # USAGE:
 # 1. Copy Cell 1 and paste it BEFORE "Build sl_basic Training Config"
@@ -14,7 +14,7 @@
 # ============================================================================
 
 # ============================================================================
-# CELL 1: Create Custom Dataset Builder for Newsletter Data
+# CELL 1: Create Custom Dataset Builder for news_content Data
 # ============================================================================
 # 📍 INSERT THIS CELL BEFORE "Build sl_basic Training Config"
 
@@ -22,12 +22,12 @@ from tinker_cookbook.recipes import sl_basic
 from pathlib import Path
 import json
 
-print("🔧 Creating custom dataset builder for newsletter data...")
+print("🔧 Creating custom dataset builder for news_content data...")
 print("="*80)
 
 # Path to your training data
-base_dir = "/content/drive/MyDrive/AI_Projects/Newsletter_FineTuning/training_data"
-train_file_path = f"{base_dir}/newsletter_train_data.jsonl"
+base_dir = "/content/drive/MyDrive/AI_Projects/news_content_FineTuning/training_data"
+train_file_path = f"{base_dir}/news_content_train_data.jsonl"
 
 # Verify file exists
 if not Path(train_file_path).exists():
@@ -42,7 +42,7 @@ else:
         lines = [line for line in f if line.strip()]
         num_examples = len(lines)
         
-        # Show first example to verify it's newsletter data
+        # Show first example to verify it's news_content data
         if lines:
             first_example = json.loads(lines[0])
             print(f"\n📊 Training examples: {num_examples}")
@@ -183,11 +183,11 @@ if 'config' in globals():
                 content = msg.get('content', '')[:150]
                 print(f"  {role}: {content}...")
         
-        print(f"\n✅ Training will use YOUR newsletter data!")
+        print(f"\n✅ Training will use YOUR news_content data!")
         print(f"   NOT the 'no_robots' dataset")
     else:
         print(f"\n⚠️ WARNING: Using default dataset builder")
-        print(f"   This will train on 'no_robots' dataset, not your newsletter data!")
+        print(f"   This will train on 'no_robots' dataset, not your news_content data!")
         print(f"   Please run the custom dataset builder cell first")
 else:
     print("❌ Config not found. Please run the config creation cell first.")
@@ -215,12 +215,12 @@ print("="*80)
 
 3. **Error: "Training file not found"**
    - Run the train/test split code first
-   - This creates newsletter_train_data.jsonl
+   - This creates news_content_train_data.jsonl
    - Verify the file exists in Google Drive
 
-4. **Training examples don't match newsletter data**
+4. **Training examples don't match news_content data**
    - Check the file path in CELL 1
-   - Verify newsletter_train_data.jsonl contains your data
+   - Verify news_content_train_data.jsonl contains your data
    - Run the verification cell to check what's being loaded
 
 5. **Want to use different model or parameters**
@@ -232,23 +232,23 @@ print("="*80)
 
 📚 EXPECTED WORKFLOW:
 
-1. ✅ Run train/test split (creates newsletter_train_data.jsonl)
+1. ✅ Run train/test split (creates news_content_train_data.jsonl)
 2. ✅ Run CELL 1 (creates custom dataset_builder)
 3. ✅ Run CELL 2 (creates config with custom dataset)
-4. ✅ Run training cell (trains on YOUR newsletter data)
-5. ✅ Verify logged examples match your newsletter data
+4. ✅ Run training cell (trains on YOUR news_content data)
+5. ✅ Verify logged examples match your news_content data
 
 🎯 SUCCESS INDICATORS:
 
 - CELL 1 shows: "✅ Custom dataset builder created!"
 - CELL 2 shows: "✅ VERIFIED: Using custom dataset from: ..."
-- Training logs show YOUR newsletter examples, not coffee/Texas/Calico stories
+- Training logs show YOUR news_content examples, not coffee/Texas/Calico stories
 - Training completes with checkpoints saved
 
 💡 REMEMBER:
 
 The key fix is creating a FromConversationFileBuilder that points to your
-newsletter_train_data.jsonl file, instead of using the default NoRobotsBuilder
+news_content_train_data.jsonl file, instead of using the default NoRobotsBuilder
 that loads the "no_robots" dataset.
 """
 

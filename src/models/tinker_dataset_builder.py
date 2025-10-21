@@ -1,5 +1,5 @@
 # ============================================================================
-# FIXED: Create Custom Dataset Builder for Newsletter Data
+# FIXED: Create Custom Dataset Builder for news_content Data
 # ============================================================================
 # This version uses the correct approach based on Tinker's actual API
 
@@ -20,12 +20,12 @@ except Exception as e:
     print(f"❌ Could not inspect: {e}")
 
 print("\n" + "="*80)
-print("🔧 Creating custom dataset builder for newsletter data...")
+print("🔧 Creating custom dataset builder for news_content data...")
 print("="*80)
 
 # Path to your training data
-base_dir = "/content/drive/MyDrive/AI_Projects/Newsletter_FineTuning/training_data"
-train_file_path = f"{base_dir}/newsletter_train_data.jsonl"
+base_dir = "/content/drive/MyDrive/AI_Projects/news_content_FineTuning/training_data"
+train_file_path = f"{base_dir}/news_content_train_data.jsonl"
 
 # Verify file exists
 if not Path(train_file_path).exists():

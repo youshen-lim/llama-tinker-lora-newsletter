@@ -29,13 +29,13 @@ The News Analyst MCP Agent has achieved a **78% performance improvement** throug
 
 ```yaml
 Processing Speed:
-  Before: 80-95 seconds per newsletter
+  Before: 80-95 seconds per news content item
   After: 18.7 seconds average
   Improvement: 78% faster processing
 
 Completion Rate:
-  Before: 24% (5/21 newsletters completed)
-  After: 100% (21/21 newsletters projected)
+  Before: 24% (5/21 news content items completed)
+  After: 100% (21/21 news content items projected)
   Improvement: 4x completion rate
 
 Total Workflow:
@@ -143,7 +143,7 @@ graph TD
 - **Resource Usage**: ~8GB RAM, 15-25 minutes weekly processing
 
 #### **4. Content Processing Engine**
-- **Role**: Newsletter extraction, parsing, and formatting
+- **Role**: News content extraction, parsing, and formatting
 - **Location**: `newsletter_organizer.py`
 - **Methods**: MCP-based email extraction, deterministic HTML parsing, markdown generation
 
@@ -341,7 +341,7 @@ def _generate_content_from_subjects(self, llm_response: str, source_name: str) -
 
 **LLM-Enhanced Processing (Advanced)**:
 - Semantic understanding of content hierarchy
-- Context-aware formatting for newsletter patterns
+- Context-aware formatting for news content patterns
 - Link relevance assessment and prioritization
 - Content summarization and coherent abstracts
 - Cross-reference resolution between topics
@@ -393,7 +393,7 @@ Key developments in AI, crypto, and tech with focus on enterprise adoption.
 - Technologies: GPT-4, Gemini 2.0, Bitcoin ETF
 - People: Sam Altman, Sundar Pichai
 
-## Cross-Newsletter Insights
+## Cross-Content Insights
 - AI regulation themes appear across 3/3 sources
 - Enterprise AI adoption accelerating
 ```
@@ -401,7 +401,7 @@ Key developments in AI, crypto, and tech with focus on enterprise adoption.
 **Quality Improvements**:
 - **Content Structure**: 3-5x better organization
 - **Metadata Extraction**: 10x more semantic information  
-- **Cross-Newsletter Insights**: 2-3x better connections
+- **Cross-Content Insights**: 2-3x better connections
 - **Analysis Depth**: 40-60% richer NotebookLM outputs
 
 #### **5. Quality vs. Cost Trade-off Analysis**
@@ -448,7 +448,7 @@ The News-Analyst-MCP-Agent system provides **strong privacy protection** through
 **Data That Stays Local**:
 ```python
 # Location: newsletter_organizer.py, production_newsletter_analyst.py
-- Raw newsletter email content (processed locally)
+- Raw news content email (processed locally)
 - LLM analysis and enhancement (Ollama local processing)
 - Intermediate processing results (temporary local storage)
 - OAuth refresh tokens (stored in mcp_agent.config.yaml)
@@ -465,7 +465,7 @@ The News-Analyst-MCP-Agent system provides **strong privacy protection** through
 
 #### **Privacy Benefits of Local-First Architecture**
 
-1. **Content Privacy**: Newsletter content never leaves local system during processing
+1. **Content Privacy**: News content never leaves local system during processing
 2. **Analysis Privacy**: LLM analysis happens entirely offline with Ollama
 3. **No Telemetry**: Zero analytics, tracking, or usage data sent to external services
 4. **User Control**: Final output upload to Google Drive is user-controlled
@@ -498,7 +498,7 @@ chmod 700 output/
 #### **Network Traffic Analysis**
 
 **Typical Weekly Network Usage**:
-- **Gmail API calls**: ~10-20 requests (newsletter retrieval)
+- **Gmail API calls**: ~10-20 requests (news content retrieval)
 - **Google Drive uploads**: ~2-4 requests (final output storage)
 - **RSS fetching**: ~5-10 requests (optional TLDR content)
 - **Total bandwidth**: <10MB per week (mostly text content)
@@ -737,7 +737,7 @@ def __init__(self, model_provider: str = None):
 
 1. **Cross-Platform Testing**: Verify and debug macOS/Linux automation scripts
 2. **Cloud LLM Integration**: Add cloud provider support for higher quality analysis
-3. **Additional Newsletter Sources**: Expand beyond current email sources
+3. **Additional News Content Sources**: Expand beyond current email sources
 4. **Web Interface**: Build configuration and monitoring dashboard
 5. **API Gateway**: Create RESTful API for external integrations
 
@@ -757,7 +757,7 @@ def __init__(self, model_provider: str = None):
 
 The system currently requires manual steps for NotebookLM integration:
 
-1. **Automated**: Newsletter analysis uploaded to Google Drive
+1. **Automated**: News content analysis uploaded to Google Drive
 2. **Manual**: User imports Google Drive document into NotebookLM
 3. **Manual**: User initiates analysis and queries in NotebookLM
 
@@ -820,21 +820,21 @@ Based on comprehensive research (January 2025):
 ## 🔮 Future Roadmap
 
 ### **Phase 1: Optimization (Q1 2025)**
-- Fine-tune Ollama model for newsletter-specific analysis
-- Implement caching for repeated newsletter processing
+- Fine-tune Ollama model for news-content-specific analysis
+- Implement caching for repeated news content processing
 - Add web interface for configuration management
 - **Monitor NotebookLM API developments** for automation opportunities
 
 ### **Phase 2: Expansion (Q2 2025)**
-- Support additional newsletter sources beyond email
+- Support additional news content sources beyond email
 - Integrate RSS feed processing for broader coverage
 - Add real-time monitoring and alerting
 - **Implement NotebookLM automation** if API becomes available
 
 ### **Phase 3: Intelligence (Q3 2025)**
-- Implement trend analysis across newsletter history
+- Implement trend analysis across news content history
 - Add predictive insights for emerging topics
-- Create automated newsletter recommendations
+- Create automated news content recommendations
 - **Advanced NotebookLM integration** with custom analysis workflows
 
 ### **Phase 4: Integration (Q4 2025)**
@@ -944,7 +944,7 @@ The News-Analyst-MCP-Agent represents an **exemplary implementation** of modern 
 - **Quality optimization** for NotebookLM analysis workflows
 - **Local-first principles** maintaining user privacy and control
 
-The system's **optional LLM integration** design is particularly noteworthy - enabling users to run the complete newsletter processing pipeline with or without local LLM enhancement, while NotebookLM handles final analysis regardless of preprocessing approach.
+The system's **optional LLM integration** design is particularly noteworthy - enabling users to run the complete news content processing pipeline with or without local LLM enhancement, while NotebookLM handles final analysis regardless of preprocessing approach.
 
 **Strategic Value**: This architecture serves as a blueprint for building sophisticated, zero-cost AI systems that maintain professional quality while preserving user autonomy and privacy.
 

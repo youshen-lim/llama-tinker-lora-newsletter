@@ -4,7 +4,7 @@
 **Document Version**: 1.0  
 **Created**: 2025-10-16  
 **Model Target**: Llama 3.2 1B Instruct  
-**Use Case**: Newsletter relevance scoring improvement  
+**Use Case**: News content relevance scoring improvement
 
 ---
 
@@ -103,15 +103,15 @@ Efficiency: 100% parameter utilization
 #### **LoRA Deployment**
 ```bash
 # Simple adapter loading
-ollama create newsletter-analyzer --file Modelfile
+ollama create news-content-analyzer --file Modelfile
 # Runtime switching
-ollama run llama3.2:1b-base --adapter newsletter_v1
+ollama run llama3.2:1b-base --adapter news_content_v1
 ```
 
 #### **Full Fine-Tuning Deployment**
 ```bash
 # Complete model replacement
-ollama create newsletter-analyzer-v1 --file ./fine_tuned_model.gguf
+ollama create news-content-analyzer-v1 --file ./fine_tuned_model.gguf
 # Version switching requires model reload
 ```
 
@@ -132,9 +132,9 @@ ollama create newsletter-analyzer-v1 --file ./fine_tuned_model.gguf
 #### **LoRA Strategy**
 ```
 Base Model: llama3.2-1b-instruct.gguf (1.0GB, shared)
-├── newsletter_v1.0_lora.gguf (50MB)
-├── newsletter_v1.1_lora.gguf (50MB)
-├── newsletter_v2.0_lora.gguf (50MB)
+├── news_content_v1.0_lora.gguf (50MB)
+├── news_content_v1.1_lora.gguf (50MB)
+├── news_content_v2.0_lora.gguf (50MB)
 └── experimental_lora.gguf (50MB)
 
 Total Storage: 1.2GB for 4 variants
@@ -142,9 +142,9 @@ Total Storage: 1.2GB for 4 variants
 
 #### **Full Fine-Tuning Strategy**
 ```
-├── newsletter_v1.0_full.gguf (1.2GB)
-├── newsletter_v1.1_full.gguf (1.2GB)
-├── newsletter_v2.0_full.gguf (1.2GB)
+├── news_content_v1.0_full.gguf (1.2GB)
+├── news_content_v1.1_full.gguf (1.2GB)
+├── news_content_v2.0_full.gguf (1.2GB)
 └── experimental_full.gguf (1.2GB)
 
 Total Storage: 4.8GB for 4 variants

@@ -15,8 +15,8 @@
 import json
 import os
 
-DRIVE_PATH = "/content/drive/MyDrive/AI_Projects/Newsletter_FineTuning"
-training_path = f"{DRIVE_PATH}/training_data/newsletter_training_data.jsonl"
+DRIVE_PATH = "/content/drive/MyDrive/AI_Projects/news_content_FineTuning"
+training_path = f"{DRIVE_PATH}/training_data/news_content_training_data.jsonl"
 
 print("📂 Loading training data for annotation...")
 print("="*80)
@@ -38,7 +38,7 @@ else:
     print(f"✅ Loaded {len(loaded_examples)} examples for annotation")
 
     # Check if annotated file exists to filter out already annotated examples
-    annotated_path = f"{DRIVE_PATH}/training_data/newsletter_training_annotated.jsonl"
+    annotated_path = f"{DRIVE_PATH}/training_data/news_content_training_annotated.jsonl"
 
     if os.path.exists(annotated_path):
         print(f"\n📋 Checking for already annotated examples...")
@@ -142,7 +142,7 @@ companies_text = widgets.Textarea(
 )
 
 summary_text = widgets.Textarea(
-    placeholder='Brief summary of the newsletter item',
+    placeholder='Brief summary of the news_content item',
     description='Summary:',
     rows=2,
     style={'description_width': '180px', 'font_size': '16px'},
@@ -334,7 +334,7 @@ def on_skip_click(b):
 # ============================================================================
 def on_save_all_click(b):
     """Save all annotations to file (with merge to prevent duplicates and preserve existing)"""
-    output_path = f"{DRIVE_PATH}/training_data/newsletter_training_annotated.jsonl"
+    output_path = f"{DRIVE_PATH}/training_data/news_content_training_annotated.jsonl"
 
     # ✅ STEP 1: Load existing annotations from file
     existing_annotations = []

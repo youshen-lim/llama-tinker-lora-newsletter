@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes the data preparation process for fine-tuning LLaMA 3.2-1B with LoRA adapters. The process involves collecting newsletter content, manual annotation, and formatting into JSONL for training.
+This document describes the data preparation process for fine-tuning LLaMA 3.2-1B with LoRA adapters. The process involves collecting news content, manual annotation, and formatting into JSONL for training.
 
 ---
 
@@ -36,7 +36,7 @@ Each line in the JSONL file represents one training example:
   "messages": [
     {
       "role": "user",
-      "content": "Analyze this newsletter:\n\n[Newsletter content here...]"
+      "content": "Analyze this news content:\n\n[News content here...]"
     },
     {
       "role": "assistant",
@@ -49,8 +49,8 @@ Each line in the JSONL file represents one training example:
 ### **Message Format**
 
 **User Message**:
-- Prompt template: `"Analyze this newsletter:\n\n{newsletter_content}"`
-- Content: Raw newsletter text (email body)
+- Prompt template: `"Analyze this news content:\n\n{news_content}"`
+- Content: Raw news content text (email body)
 - Length: 500-3000 characters (truncated if longer)
 
 **Assistant Message**:
@@ -67,7 +67,7 @@ Each line in the JSONL file represents one training example:
   "messages": [
     {
       "role": "user",
-      "content": "Analyze this newsletter:\n\nSubject: AI Advances in 2024\n\nOpenAI released GPT-4 Turbo with improved performance..."
+      "content": "Analyze this news content:\n\nSubject: AI Advances in 2024\n\nOpenAI released GPT-4 Turbo with improved performance..."
     },
     {
       "role": "assistant",
@@ -83,19 +83,19 @@ Each line in the JSONL file represents one training example:
 
 ### **Step 1: Data Collection**
 
-**Source**: Real newsletter emails from Gmail
+**Source**: Real news content emails from Gmail
 
 **Collection Method**:
-1. Export newsletters from Gmail
+1. Export news content from Gmail
 2. Extract email body content
 3. Clean HTML formatting
 4. Truncate to manageable length (500-3000 chars)
 
 **Quality Criteria**:
 - ✅ Diverse topics (tech, business, research)
-- ✅ Varied newsletter sources
+- ✅ Varied news content sources
 - ✅ Different content structures
-- ✅ Mix of short and long newsletters
+- ✅ Mix of short and long news content items
 
 ### **Step 2: Manual Annotation**
 
@@ -104,7 +104,7 @@ Each line in the JSONL file represents one training example:
 **Annotation Interface**:
 ```python
 # Interactive widget with:
-# - Newsletter content display
+# - News content display
 # - Relevance score slider (1-10)
 # - Summary text area
 # - Insights list (add/remove)
@@ -126,7 +126,7 @@ Each line in the JSONL file represents one training example:
    - Example: "OpenAI announces GPT-4 Turbo with 3x cost reduction and 128K context window."
 
 3. **Insights**:
-   - Count: 2-5 insights per newsletter
+   - Count: 2-5 insights per news content item
    - Format: Bullet points
    - Content: Actionable takeaways, key facts, important details
    - Example: ["GPT-4 Turbo is 3x cheaper", "128K context window", "Improved instruction following"]
@@ -141,7 +141,7 @@ Each line in the JSONL file represents one training example:
 - ✅ At least 2 insights
 
 **Consistency Checks**:
-- ✅ Similar newsletters have similar scores
+- ✅ Similar news content items have similar scores
 - ✅ Summaries are concise (not copy-paste)
 - ✅ Insights are distinct (not redundant)
 
@@ -173,8 +173,8 @@ train_data, test_data = train_test_split(
 
 ### **Features**
 
-1. **Newsletter Display**:
-   - Shows full newsletter content
+1. **News Content Display**:
+   - Shows full news content
    - Syntax highlighting for readability
    - Scrollable for long content
 
@@ -202,20 +202,20 @@ from annotation_widget import AnnotationWidget
 
 # Initialize widget
 widget = AnnotationWidget(
-    input_file='raw_newsletters.jsonl',
-    output_file='annotated_newsletters.jsonl'
+    input_file='raw_news_content.jsonl',
+    output_file='annotated_news_content.jsonl'
 )
 
 # Display widget
 widget.display()
 
-# Annotate each newsletter:
-# 1. Read newsletter content
+# Annotate each news content item:
+# 1. Read news content
 # 2. Set relevance score (1-10)
 # 3. Write summary
 # 4. Add insights
 # 5. Click "Save"
-# 6. Move to next newsletter
+# 6. Move to next news content item
 ```
 
 ### **Code**
@@ -231,8 +231,8 @@ See `notebooks/JSONL_Annotation_Notebook_Final.ipynb` for complete implementatio
 | Metric | Value |
 |--------|-------|
 | **Inter-annotator agreement** | N/A (single annotator) |
-| **Annotation time** | ~2-3 minutes per newsletter |
-| **Total annotation time** | ~4-6 hours for 121 examples |
+| **Annotation time** | ~2-3 minutes per news content item |
+| **Total annotation time** | ~4-6 hours for 121 news content items |
 
 ### **Content Diversity**
 
@@ -260,7 +260,7 @@ See `notebooks/JSONL_Annotation_Notebook_Final.ipynb` for complete implementatio
 
 1. **Paraphrasing**: Not used (risk of changing meaning)
 2. **Back-translation**: Not used (small dataset, quality concerns)
-3. **Synthetic generation**: Not used (prefer real newsletters)
+3. **Synthetic generation**: Not used (prefer real news content)
 
 ### **Rationale**
 
@@ -285,8 +285,8 @@ data/
 
 | File | Size | Lines |
 |------|------|-------|
-| `newsletter_train_data.jsonl` | ~150 KB | 101 |
-| `newsletter_test_data.jsonl` | ~30 KB | 20 |
+| `newsletter_train_data.jsonl` | ~150 KB | 101 news content items |
+| `newsletter_test_data.jsonl` | ~30 KB | 20 news content items |
 
 ### **Backup**
 
@@ -301,15 +301,15 @@ data/
 ### **What Worked Well**
 
 1. ✅ **Custom annotation widget** - Much faster than manual JSON editing
-2. ✅ **Real newsletter data** - Better than synthetic examples
+2. ✅ **Real news content data** - Better than synthetic examples
 3. ✅ **Structured JSON output** - Easy to validate and parse
 4. ✅ **Small dataset** - Sufficient for LoRA fine-tuning
 
 ### **Challenges**
 
-1. ⚠️ **Time-consuming** - 4-6 hours for 121 examples
+1. ⚠️ **Time-consuming** - 4-6 hours for 121 news content items
 2. ⚠️ **Subjectivity** - Relevance scores can be subjective
-3. ⚠️ **HTML cleaning** - Some newsletters had complex formatting
+3. ⚠️ **HTML cleaning** - Some news content had complex formatting
 
 ### **Future Improvements**
 
@@ -324,10 +324,10 @@ data/
 
 ### **Annotation Workflow**
 
-1. **Collect newsletters** from Gmail (export as MBOX or use Gmail API)
-2. **Clean and format** newsletter content (remove HTML, truncate)
+1. **Collect news content** from Gmail (export as MBOX or use Gmail API)
+2. **Clean and format** news content (remove HTML, truncate)
 3. **Load annotation widget** in Google Colab
-4. **Annotate each newsletter** (relevance score, summary, insights)
+4. **Annotate each news content item** (relevance score, summary, insights)
 5. **Validate annotations** (JSON format, required fields)
 6. **Split data** (80/20 train/test)
 7. **Save to JSONL** files
@@ -341,7 +341,7 @@ data/
 ### **Time Estimate**
 
 - Data collection: 1-2 hours
-- Annotation: 4-6 hours (121 examples)
+- Annotation: 4-6 hours (121 news content items)
 - Validation and splitting: 30 minutes
 - **Total**: 6-9 hours
 
