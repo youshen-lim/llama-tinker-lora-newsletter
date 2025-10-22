@@ -97,7 +97,7 @@ This fine-tuning project is part of a larger **News Analyst MCP Agent** system:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                   News Analyst MCP Agent                     │
+│                   News Analyst MCP Agent                    │
 │  (Production system for automated news content processing)  │
 └────────────────────┬────────────────────────────────────────┘
                      │
