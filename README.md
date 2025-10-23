@@ -355,27 +355,6 @@ For complete terminology definitions, see [TERMINOLOGY.md](TERMINOLOGY.md).
 
 For comprehensive definitions with examples, see [EVALUATION_METRICS_DEFINITIONS.md](EVALUATION_METRICS_DEFINITIONS.md).
 
-### **Evaluation Visualizations**
-
-Publication-quality visualizations generated with Seaborn:
-
-1. **Comparison Bar Chart** - All metrics for all models
-   - ![Comparison Bar Chart](results/evaluation_visualizations/01_comparison_bar_chart.png)
-
-2. **Radar/Spider Chart** - Multi-dimensional performance
-   - ![Radar Chart](results/evaluation_visualizations/02_radar_chart.png)
-
-3. **Correlation Heatmap** - Model performance correlation
-   - ![Correlation Heatmap](results/evaluation_visualizations/03_correlation_heatmap.png)
-
-4. **Metric Distributions** - Score distribution by metric
-   - ![Metric Distributions](results/evaluation_visualizations/04_metric_distributions.png)
-
-5. **Improvement Chart** - Percentage improvement (Tinker vs Baseline)
-   - ![Improvement Chart](results/evaluation_visualizations/05_improvement_chart.png)
-
-All visualizations available in both PNG (high-res) and SVG formats in `results/evaluation_visualizations/`
-
 ### **Comprehensive Model Evaluation Script**
 
 Use `comprehensive_model_evaluation.py` to evaluate the model:
